@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://6cade50ioilp"]
 
-[ext_resource type="Script" uid="uid://s1myc3hrfl3r" path="res://levels/scripts/player.gd" id="1_chttk"]
+[ext_resource type="Script" uid="uid://s1myc3hrfl3r" path="res://scripts/player.gd" id="1_chttk"]
 [ext_resource type="Texture2D" uid="uid://cxq78iqmqf3jj" path="res://assets/Characters/2 - Mr. Mochi/Idle (32 x 32).png" id="2_735sv"]
 [ext_resource type="Texture2D" uid="uid://qvac474vdvdp" path="res://assets/Characters/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_esgq3"]
 [ext_resource type="Texture2D" uid="uid://v65uchj62jtp" path="res://assets/Characters/2 - Mr. Mochi/Running (32 x 32).png" id="4_kjkj0"]
@@ -82,7 +82,6 @@ shape = SubResource("RectangleShape2D_chttk")
 
 [node name="camera" type="Camera2D" parent="."]
 visible = false
-zoom = Vector2(2, 2)
 limit_left = 1
 position_smoothing_enabled = true
 
