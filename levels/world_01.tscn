@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://deweck5puykgu"]
+[gd_scene load_steps=15 format=4 uid="uid://deweck5puykgu"]
 
 [ext_resource type="Texture2D" uid="uid://cu03ltdsu3gwq" path="res://assets/tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_naeyk"]
 [ext_resource type="Texture2D" uid="uid://h5fxqhx537ys" path="res://assets/tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_or7x1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c7k26ero6ml22" path="res://assets/tilesets/1 - Grassland/Background parts/2 - Hills.png" id="7_0heyt"]
 [ext_resource type="Texture2D" uid="uid://budnxa815f6pu" path="res://assets/tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="8_dp75u"]
 [ext_resource type="PackedScene" uid="uid://bxuog0dghnpol" path="res://prefabs/moving_plataform.tscn" id="9_yso3o"]
+[ext_resource type="PackedScene" uid="uid://bk0r24rujhk" path="res://prefabs/coin.tscn" id="10_tii1u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8rs1"]
 texture = ExtResource("1_naeyk")
@@ -194,3 +195,30 @@ position = Vector2(144, 200)
 [node name="moving_plataform2" parent="." instance=ExtResource("9_yso3o")]
 position = Vector2(96, 250)
 move_horizontal = false
+
+[node name="Coin" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(305, 238)
+
+[node name="Coin2" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(261, 115)
+
+[node name="Coin3" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(343, 144)
+
+[node name="Coin4" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(80, 80)
+
+[node name="Coin5" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(86, 178)
+
+[node name="Coin6" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(462, 179)
+
+[node name="Coin7" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(520, 70)
+
+[node name="Coin8" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(582, 81)
+
+[node name="Coin9" parent="." instance=ExtResource("10_tii1u")]
+position = Vector2(762, 288)
