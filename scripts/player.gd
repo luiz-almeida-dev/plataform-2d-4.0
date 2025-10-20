@@ -41,23 +41,28 @@ func _physics_process(delta: float) -> void:
 	
 	_set_state()
 	move_and_slide()
+	
+	for plataforms in get_slide_collision_count():
+		var collision = get_slide_collision(plataforms)
+		if collision.get_collider().has_method("has_collided_with"):
+			collision.get_collider().has_collided_with(collision, self)
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if player_life < 0:
-		queue_free()
-	else:
-		if(ray_right.is_colliding()):
-			take_damage(Vector2(-200, -200))
-		elif(ray_left.is_colliding()):
-			take_damage(Vector2(200, -200))
+	if(ray_right.is_colliding()):
+		take_damage(Vector2(-200, -200))
+	elif(ray_left.is_colliding()):
+		take_damage(Vector2(200, -200))
 		
 func follow_camera(camera):
 	var camera_path = camera.get_path()
 	remote_transform.remote_path = camera_path
 
 func take_damage(knockback_force:= Vector2.ZERO, duration := 0.25):
-	player_life -= 1
+	if player_life > 0:
+		player_life -= 1
+	else:
+		queue_free()
 	
 	if  knockback_force != Vector2.ZERO:
 		knockback_vector = knockback_force
@@ -86,6 +91,14 @@ func _set_state():
 	if animation.name != state:
 		animation.play(state)
 	
-	
-	
-	
+
+
+func _on_head_collider_body_entered(body: Node2D) -> void:
+	if body.has_method("break_sprite"):
+		body.hitpoints -= 1
+		if body.hitpoints < 1:
+			body.break_sprite()
+		else:
+			body.animation_player.play("hit")
+			body.create_coin()
+			
