@@ -7,12 +7,13 @@ var is_jumping := false
 var is_hurted := false
 var knockback_vector := Vector2.ZERO
 var direction
-@export var player_life := 10
 
 @onready var animation:= $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
 @onready var ray_right := $ray_right as RayCast2D
 @onready var ray_left := $ray_left as RayCast2D
+
+signal player_has_died()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -59,10 +60,11 @@ func follow_camera(camera):
 	remote_transform.remote_path = camera_path
 
 func take_damage(knockback_force:= Vector2.ZERO, duration := 0.25):
-	if player_life > 0:
-		player_life -= 1
+	if Globals.player_life > 0:
+		Globals.player_life -= 1
 	else:
 		queue_free()
+		emit_signal("player_has_died")
 	
 	if  knockback_force != Vector2.ZERO:
 		knockback_vector = knockback_force
@@ -75,7 +77,6 @@ func take_damage(knockback_force:= Vector2.ZERO, duration := 0.25):
 	is_hurted = true
 	await get_tree().create_timer(.3).timeout
 	is_hurted = false
-	
 	
 func _set_state():
 	var state = "idle"
@@ -91,8 +92,6 @@ func _set_state():
 	if animation.name != state:
 		animation.play(state)
 	
-
-
 func _on_head_collider_body_entered(body: Node2D) -> void:
 	if body.has_method("break_sprite"):
 		body.hitpoints -= 1
@@ -102,3 +101,9 @@ func _on_head_collider_body_entered(body: Node2D) -> void:
 			body.animation_player.play("hit")
 			body.create_coin()
 			
+func handle_death_zone():
+	visible =  false
+	set_physics_process(false)
+	
+	await get_tree().create_timer(1.0).timeout
+	Globals.respawn_player()

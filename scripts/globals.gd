@@ -2,3 +2,14 @@ extends Node
 
 var coins := 0
 var score := 0
+var player_life := 3
+
+var player = null
+var current_checkpoint = null
+var player_position = Vector2(100, 200)
+
+func respawn_player():
+	if current_checkpoint!= null:
+		player.position = current_checkpoint.global_position
+	else:
+		player.global_position = player_position
