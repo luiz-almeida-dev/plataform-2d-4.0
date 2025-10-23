@@ -65,6 +65,8 @@ func take_damage(knockback_force:= Vector2.ZERO, duration := 0.25):
 	else:
 		queue_free()
 		emit_signal("player_has_died")
+		await player_has_died 
+
 	
 	if  knockback_force != Vector2.ZERO:
 		knockback_vector = knockback_force

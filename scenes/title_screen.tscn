@@ -1,12 +1,51 @@
 [gd_scene load_steps=10 format=3 uid="uid://d2lfuab1w5ear"]
 
 [ext_resource type="Texture2D" uid="uid://brc3gy2nqf78c" path="res://assets/screens/title-screen.jpg" id="1_aedtt"]
-[ext_resource type="Script" uid="uid://dktegnx4eny5a" path="res://prefabs/title_screen.gd" id="1_agckt"]
+[ext_resource type="Script" uid="uid://dktegnx4eny5a" path="res://scripts/title_screen.gd" id="1_agckt"]
 [ext_resource type="Texture2D" uid="uid://cuhaekfktlvo" path="res://assets/screens/game_logo.png" id="2_u6xng"]
 [ext_resource type="Texture2D" uid="uid://qvac474vdvdp" path="res://assets/Characters/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_agckt"]
 [ext_resource type="Theme" uid="uid://d3pkesw7igfn" path="res://default_btn.tres" id="3_u6xng"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_agckt"]
+
+[sub_resource type="Animation" id="Animation_nvgea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("margin:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("margin/HBoxContainer/mochi:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_agckt"]
 resource_name = "reveal"
@@ -46,45 +85,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_nvgea"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bg:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("margin:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("margin/HBoxContainer/mochi:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mcdfo"]

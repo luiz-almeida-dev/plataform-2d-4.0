@@ -366,7 +366,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_6ibfi")
 default_minutes = 0
-default_seconds = 5
+default_seconds = 30
 
 [node name="clock_timer" type="Timer" parent="HUD/control"]
 autostart = true
@@ -391,11 +391,13 @@ size_flags_vertical = 0
 [node name="coins_icon" type="TextureRect" parent="HUD/control/container/coins_container"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 texture = SubResource("AnimatedTexture_ievm4")
+expand_mode = 2
 
 [node name="coins_counter" type="Label" parent="HUD/control/container/coins_container"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("25_14a6h")
 theme_override_font_sizes/font_size = 24
@@ -452,8 +454,8 @@ size_flags_vertical = 8
 [node name="life_icon" type="TextureRect" parent="HUD/control/container/life_container"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 texture = ExtResource("20_8drao")
+expand_mode = 2
 
 [node name="life_separator" type="Label" parent="HUD/control/container/life_container"]
 layout_mode = 2

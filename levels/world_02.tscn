@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://d0d1tf8xnf6pw"]
+[gd_scene load_steps=37 format=4 uid="uid://d0d1tf8xnf6pw"]
 
 [ext_resource type="Script" uid="uid://v53leuljrvce" path="res://scripts/world_01.gd" id="1_85etp"]
 [ext_resource type="Texture2D" uid="uid://h5fxqhx537ys" path="res://assets/tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="2_8h3ws"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bkgd8v6hvgnv4" path="res://scripts/hud_manage.gd" id="20_db6p7"]
 [ext_resource type="Texture2D" uid="uid://l7upvl3rbysf" path="res://assets/ui/Common Pick-ups/00_Coin-Sprites.png" id="21_q67t2"]
 [ext_resource type="Texture2D" uid="uid://c0abhrxnf0l0p" path="res://assets/ui/Common Pick-ups/01_Coin-Sprites.png" id="22_io3b3"]
+[ext_resource type="FontFile" uid="uid://bmgp227urx4v0" path="res://assets/fonts/RevMiniPixel.ttf" id="22_y5ite"]
 [ext_resource type="Texture2D" uid="uid://0h7pn4npfurj" path="res://assets/ui/Common Pick-ups/02_Coin-Sprites.png" id="23_afhwl"]
 [ext_resource type="Texture2D" uid="uid://cxvtafpsxl8n4" path="res://assets/ui/Common Pick-ups/03_Coin-Sprites.png" id="24_fytqr"]
 [ext_resource type="Texture2D" uid="uid://dhlyacj1ql4ah" path="res://assets/ui/Common Pick-ups/Life-Counter-Icon.png" id="25_st4sk"]
@@ -152,7 +153,7 @@ sources/0 = SubResource("TileSetAtlasSource_j8rs1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0pi2"]
 size = Vector2(84, 8)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_ievm4"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7qssf"]
 frames = 4
 speed_scale = 3.0
 frame_0/texture = ExtResource("21_q67t2")
@@ -170,7 +171,7 @@ shader_parameter/threshold = 0.0
 shader_parameter/line_color_a = Color(1, 1, 1, 1)
 shader_parameter/line_color_b = Color(0, 0, 0, 1)
 
-[node name="World-01" type="Node2D"]
+[node name="World-02" type="Node2D"]
 script = ExtResource("1_85etp")
 
 [node name="bg" type="Node2D" parent="."]
@@ -320,8 +321,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("20_db6p7")
-default_minutes = 5
-default_seconds = 30
+default_minutes = 3
+default_seconds = 5
 
 [node name="clock_timer" type="Timer" parent="HUD/control"]
 autostart = true
@@ -346,13 +347,16 @@ size_flags_vertical = 0
 [node name="coins_icon" type="TextureRect" parent="HUD/control/container/coins_container"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = SubResource("AnimatedTexture_ievm4")
+texture = SubResource("AnimatedTexture_7qssf")
+expand_mode = 2
 
 [node name="coins_counter" type="Label" parent="HUD/control/container/coins_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "0000"
 vertical_alignment = 1
 
@@ -363,15 +367,17 @@ size_flags_vertical = 0
 
 [node name="timer_label" type="Label" parent="HUD/control/container/timer_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "TIME:"
 vertical_alignment = 1
 
 [node name="timer_counter" type="Label" parent="HUD/control/container/timer_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "00:00"
 vertical_alignment = 1
 
@@ -382,15 +388,17 @@ size_flags_vertical = 0
 
 [node name="score_label" type="Label" parent="HUD/control/container/score_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "SCORE:"
 vertical_alignment = 1
 
 [node name="score_counter" type="Label" parent="HUD/control/container/score_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "000000"
 vertical_alignment = 1
 
@@ -402,20 +410,22 @@ size_flags_vertical = 8
 [node name="life_icon" type="TextureRect" parent="HUD/control/container/life_container"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 texture = ExtResource("25_st4sk")
+expand_mode = 2
 
 [node name="life_separator" type="Label" parent="HUD/control/container/life_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "X"
 vertical_alignment = 1
 
 [node name="life_counter" type="Label" parent="HUD/control/container/life_container"]
 layout_mode = 2
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("22_y5ite")
+theme_override_font_sizes/font_size = 24
 text = "03"
 vertical_alignment = 1
 
